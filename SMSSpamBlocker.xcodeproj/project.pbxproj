@@ -12,7 +12,34 @@
 		962EAF512242E43500FCE157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962EAF4F2242E43500FCE157 /* Main.storyboard */; };
 		962EAF532242E43800FCE157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962EAF522242E43800FCE157 /* Assets.xcassets */; };
 		962EAF562242E43800FCE157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962EAF542242E43800FCE157 /* LaunchScreen.storyboard */; };
+		962EAF642242E47900FCE157 /* MessageFilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962EAF632242E47900FCE157 /* MessageFilterExtension.swift */; };
+		962EAF682242E47900FCE157 /* SMSFilter.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 962EAF612242E47900FCE157 /* SMSFilter.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		962EAF70224974A300FCE157 /* SpamClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 962EAF6F224974A300FCE157 /* SpamClassifier.mlmodel */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		962EAF662242E47900FCE157 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 962EAF402242E43500FCE157 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 962EAF602242E47900FCE157;
+			remoteInfo = SMSFilter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		962EAF6C2242E47900FCE157 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				962EAF682242E47900FCE157 /* SMSFilter.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		962EAF482242E43500FCE157 /* SMSSpamBlocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSSpamBlocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +49,21 @@
 		962EAF522242E43800FCE157 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		962EAF552242E43800FCE157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		962EAF572242E43800FCE157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		962EAF612242E47900FCE157 /* SMSFilter.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SMSFilter.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		962EAF632242E47900FCE157 /* MessageFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFilterExtension.swift; sourceTree = "<group>"; };
+		962EAF652242E47900FCE157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		962EAF6F224974A300FCE157 /* SpamClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SpamClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		962EAF452242E43500FCE157 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		962EAF5E2242E47900FCE157 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				962EAF4A2242E43500FCE157 /* SMSSpamBlocker */,
+				962EAF622242E47900FCE157 /* SMSFilter */,
 				962EAF492242E43500FCE157 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				962EAF482242E43500FCE157 /* SMSSpamBlocker.app */,
+				962EAF612242E47900FCE157 /* SMSFilter.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +104,16 @@
 			path = SMSSpamBlocker;
 			sourceTree = "<group>";
 		};
+		962EAF622242E47900FCE157 /* SMSFilter */ = {
+			isa = PBXGroup;
+			children = (
+				962EAF632242E47900FCE157 /* MessageFilterExtension.swift */,
+				962EAF6F224974A300FCE157 /* SpamClassifier.mlmodel */,
+				962EAF652242E47900FCE157 /* Info.plist */,
+			);
+			path = SMSFilter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +124,34 @@
 				962EAF442242E43500FCE157 /* Sources */,
 				962EAF452242E43500FCE157 /* Frameworks */,
 				962EAF462242E43500FCE157 /* Resources */,
+				962EAF6C2242E47900FCE157 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				962EAF672242E47900FCE157 /* PBXTargetDependency */,
 			);
 			name = SMSSpamBlocker;
 			productName = SMSSpamBlocker;
 			productReference = 962EAF482242E43500FCE157 /* SMSSpamBlocker.app */;
 			productType = "com.apple.product-type.application";
+		};
+		962EAF602242E47900FCE157 /* SMSFilter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 962EAF692242E47900FCE157 /* Build configuration list for PBXNativeTarget "SMSFilter" */;
+			buildPhases = (
+				962EAF5D2242E47900FCE157 /* Sources */,
+				962EAF5E2242E47900FCE157 /* Frameworks */,
+				962EAF5F2242E47900FCE157 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SMSFilter;
+			productName = SMSFilter;
+			productReference = 962EAF612242E47900FCE157 /* SMSFilter.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +164,9 @@
 				ORGANIZATIONNAME = "TelTech Systems Inc";
 				TargetAttributes = {
 					962EAF472242E43500FCE157 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					962EAF602242E47900FCE157 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -113,6 +185,7 @@
 			projectRoot = "";
 			targets = (
 				962EAF472242E43500FCE157 /* SMSSpamBlocker */,
+				962EAF602242E47900FCE157 /* SMSFilter */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +201,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		962EAF5F2242E47900FCE157 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -140,7 +220,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		962EAF5D2242E47900FCE157 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				962EAF70224974A300FCE157 /* SpamClassifier.mlmodel in Sources */,
+				962EAF642242E47900FCE157 /* MessageFilterExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		962EAF672242E47900FCE157 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 962EAF602242E47900FCE157 /* SMSFilter */;
+			targetProxy = 962EAF662242E47900FCE157 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		962EAF4F2242E43500FCE157 /* Main.storyboard */ = {
@@ -281,6 +378,7 @@
 		962EAF5B2242E43800FCE157 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78A26S7C7Z;
@@ -299,6 +397,7 @@
 		962EAF5C2242E43800FCE157 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78A26S7C7Z;
@@ -309,6 +408,44 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.teltech.SMSSpamBlocker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		962EAF6A2242E47900FCE157 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78A26S7C7Z;
+				INFOPLIST_FILE = SMSFilter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.teltech.SMSSpamBlocker.SMSFilter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		962EAF6B2242E47900FCE157 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78A26S7C7Z;
+				INFOPLIST_FILE = SMSFilter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.teltech.SMSSpamBlocker.SMSFilter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -331,6 +468,15 @@
 			buildConfigurations = (
 				962EAF5B2242E43800FCE157 /* Debug */,
 				962EAF5C2242E43800FCE157 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		962EAF692242E47900FCE157 /* Build configuration list for PBXNativeTarget "SMSFilter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				962EAF6A2242E47900FCE157 /* Debug */,
+				962EAF6B2242E47900FCE157 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
